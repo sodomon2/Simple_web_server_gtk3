@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=SimpleWebServer
+GenericName=SimpleWebServer
+Comment=a front end for simple web server
+Exec=main.lua
+Icon=applications-internet
+Terminal=false
+Categories=Network;
