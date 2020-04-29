@@ -2,6 +2,7 @@
 a front end for simple web server
 
 Binario `cp -u swsgtk3.lua /usr/local/bin/swsgtk3`
+
 Desktop `cp -u SimpleWebServer.desktop /usr/share/applications `
 
 ## Dependencias
