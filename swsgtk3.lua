@@ -2,9 +2,11 @@
 --[[!
  @package   Simple Web Server gtk3
  @filename  main.lua
- @version   1.0
- @autor     Diaz Urbaneja Victor Eduardo Diex <diaz.victor@openmailbox.org>
- @date      16.06.2018 17:55:00 -04
+ @version   1.3
+ @autor     Diaz Urbaneja Victor Eduardo Diex <diaz.victor@openmailbox.org> 2018
+ @autor     Díaz Urbaneja Víctor Diex Gamar <Sirkennov@outlook.com> 2018
+ @autor     Diaz Urbaneja Victor Diego Alejandro <sodomon2@gmail.com> 2020
+ @date      29.04.2020 17:55:00 -04
 ]]--
 
 
@@ -36,13 +38,6 @@ local port = builder:get_object('port')           --este seria el input de port
 
 local input_select = builder:get_object('input_select')
 
--- for id, text in pairs {
-	-- never = "Not visible",
-	-- when_active = "Visible when active",
-	-- always = "Always visible",
-	-- } do
-	-- input_select:append(id, text)
--- end
 
 function compartir:on_clicked()
 	condition = true
@@ -56,16 +51,6 @@ function compartir:on_clicked()
 		local cmd = "/usr/bin/simple_web_server -p  ".. port.text .." -r  ".. pwd .."  &"
 		os.execute(cmd)
 		app_run = true
-		
-		-- while (condition) do
-			-- numero = (numero +1)
-			-- os.execute("sleep 1")
-			-- print(numero)
-			-- if (numero >= 10) then
-				-- condition = false
-				-- os.execute('killall -9 simple_web_server')
-			-- end
-		-- end
 		
 	else
 		info.label = "Sin ejecutar"
