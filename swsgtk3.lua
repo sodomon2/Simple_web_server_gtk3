@@ -8,22 +8,17 @@
 ]]--
 
 
--- La libreria que me permitirausar GTK
-local lgi = require 'lgi'
--- Parte de lgi
-local GObject = lgi.GObject
--- para el treeview
-local GLib = lgi.GLib
--- El objeto GTK
-local Gtk = lgi.require('Gtk', '3.0')
+local lgi = require 'lgi'             -- La libreria que me permitirausar GTK
+local GObject = lgi.GObject           -- Parte de lgi
+local GLib = lgi.GLib                 -- para el treeview
+local Gtk = lgi.require('Gtk', '3.0') -- El objeto GTK
 
 local assert = lgi.assert
 local builder = Gtk.Builder()
 
-assert(builder:add_from_file('simple_web_server.glade'))
+assert(builder:add_from_file('simple_web_server.ui'))
 local ui = builder.objects
---la vetana del main
-local window_main = ui.window_main
+local window_main = ui.window_main --la vetana del main
 
 local app_run = false
 
@@ -33,15 +28,11 @@ function window_main:on_destroy()
 	os.execute('killall -9 simple_web_server')
 end
 
---este seria el boton de compartir
-local compartir = builder:get_object('compartir')
-local info = builder:get_object('info')
---este seria el boton de about
-local about = builder:get_object('about')
---este seria el input de seleccionar directorio
-local selec = builder:get_object('selec')
---este seria el input de port
-local port = builder:get_object('port')
+local compartir = builder:get_object('compartir') --este seria el boton de compartir
+local info = builder:get_object('info')           --este seria el label de informacion
+local about = builder:get_object('about')         --este seria el boton de about
+local selec = builder:get_object('selec')         --este seria el input de seleccionar directorio
+local port = builder:get_object('port')           --este seria el input de port
 
 local input_select = builder:get_object('input_select')
 
