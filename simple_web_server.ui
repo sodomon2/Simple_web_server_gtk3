@@ -7,8 +7,9 @@
     <property name="resizable">False</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">Simple Web Server gtk3</property>
-    <property name="version">v1.2</property>
-    <property name="copyright" translatable="yes">Copyright (c) 2018 Díaz Urbaneja Victor Diego Alejandro</property>
+    <property name="version">v1.3</property>
+    <property name="copyright" translatable="yes">Copyright (c) 2018 Díaz Urbaneja Víctor Diex Gamar
+Copyright (c) 2020 Diaz Urbaneja Victor Diego Alejandro</property>
     <property name="comments" translatable="yes">a front end for simple web server</property>
     <property name="authors">Díaz Urbaneja Víctor Diex Gamar
 Díaz Urbaneja Víctor Eduardo Diex
