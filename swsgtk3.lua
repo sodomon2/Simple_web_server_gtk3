@@ -1,26 +1,26 @@
 #!/usr/bin/env lua5.1
 --[[!
  @package   Simple Web Server gtk3
- @filename  main.lua
+ @filename  swsgtk3.lua
  @version   1.3
- @autor     Diaz Urbaneja Victor Eduardo Diex <diaz.victor@openmailbox.org> 2018
- @autor     Díaz Urbaneja Víctor Diex Gamar <Sirkennov@outlook.com> 2018
+ @autor     Diaz Urbaneja Victor Eduardo Diex    <diaz.victor@openmailbox.org> 2018
+ @autor     Díaz Urbaneja Víctor Diex Gamar      <Sirkennov@outlook.com> 2018
  @autor     Diaz Urbaneja Victor Diego Alejandro <sodomon2@gmail.com> 2020
  @date      29.04.2020 17:55:00 -04
 ]]--
 
 
-local lgi = require 'lgi'             -- La libreria que me permitirausar GTK
-local GObject = lgi.GObject           -- Parte de lgi
-local GLib = lgi.GLib                 -- para el treeview
-local Gtk = lgi.require('Gtk', '3.0') -- El objeto GTK
+local lgi     = require 'lgi'               -- La libreria que me permitirausar GTK
+local GObject = lgi.GObject                 -- Parte de lgi
+local GLib    = lgi.GLib                    -- para el treeview
+local Gtk     = lgi.require('Gtk', '3.0')   -- El objeto GTK
 
-local assert = lgi.assert
+local assert  = lgi.assert
 local builder = Gtk.Builder()
 
 assert(builder:add_from_file('simple_web_server.ui'))
 local ui = builder.objects
-local window_main = ui.window_main --la vetana del main
+local window_main = ui.window_main  --la vetana del main
 
 local app_run = false
 
@@ -30,11 +30,11 @@ function window_main:on_destroy()
 	os.execute('killall -9 simple_web_server')
 end
 
-local compartir = builder:get_object('compartir') --este seria el boton de compartir
-local info = builder:get_object('info')           --este seria el label de informacion
-local about = builder:get_object('about')         --este seria el boton de about
-local selec = builder:get_object('selec')         --este seria el input de seleccionar directorio
-local port = builder:get_object('port')           --este seria el input de port
+local compartir = builder:get_object('compartir')      --este seria el boton de compartir
+local info      = builder:get_object('info')           --este seria el label de informacion
+local about     = builder:get_object('about')          --este seria el boton de about
+local selec     = builder:get_object('selec')          --este seria el input de seleccionar directorio
+local port      = builder:get_object('port')           --este seria el input de port
 
 local input_select = builder:get_object('input_select')
 
@@ -43,7 +43,6 @@ function compartir:on_clicked()
 	condition = true
 	numero = 0
 	
-	-- input_select:append(40, 40)
 	print(selec:get_filename(), port.text, input_select:get_active_id())
 	local pwd = selec:get_filename()
 	if pwd and app_run == false then
@@ -57,13 +56,13 @@ function compartir:on_clicked()
 	end
 end
 
---este seria el boton de cancelar
-local cancel = builder:get_object('cancel') 
+local cancel = builder:get_object('cancel') --este seria el boton de cancelar
+
 function cancel:on_clicked()
-	-- Gtk.main_quit()
 	os.execute('killall -9 simple_web_server')
 	info.label = ""
 	app_run = false
+
 end  
 
 function about:on_clicked()
